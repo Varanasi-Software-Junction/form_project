@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Forms Tutorial - Step 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            max-width: 1200px;
+        }
+
+        header {
+            background-color: #1e90ff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #1e90ff;
+        }
+
+        p, ul, li {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .command-block {
+            background-color: #eaf5ff;
+            padding: 15px;
+            border-left: 4px solid #1e90ff;
+            margin-bottom: 15px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+
+        .mcq, .essay {
+            margin: 20px 0;
+        }
+
+        .answer {
+            display: none;
+            color: green;
+            margin-top: 10px;
+        }
+
+        .answer-btn {
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .answer-btn:hover {
+            background-color: #4682b4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #1e90ff;
+            color: white;
+        }
+
+        .image-upload {
+            margin: 20px 0;
+        }
+
+        .image-upload input[type="file"] {
+            padding: 10px;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            p, ul, li {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Django Forms Tutorial - Step 1</h1>
+</header>
+
+<div class="container">
+
+    <section>
+        <h2>Step 1: Setting Up Your Django Project with MySQL Database</h2>
+        <p>This tutorial will guide you through setting up a Django project and connecting it to a MySQL database.</p>
+
+        <h3>Commands to Execute</h3>
+        <div class="command-block">
+            <pre>
+# Install Django and MySQL Libraries
+pip install django
+pip install mysqlclient
+
+# Create a New Django Project
+django-admin startproject form_project
+cd form_project
+
+# Create a Django App
+python manage.py startapp form_app
+            </pre>
+        </div>
+
+        <h3>Folder Structure After Setup</h3>
+        <div class="command-block">
+            <pre>
+form_project/
+│
+├── form_project/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+├── form_app/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations/
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+│
+├── manage.py
+            </pre>
+        </div>
+
+        <h3>Configure Database in <code>settings.py</code></h3>
+        <div class="command-block">
+            <pre>
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_forms_db',
+        'USER': 'your_mysql_user',
+        'PASSWORD': 'your_mysql_password',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+            </pre>
+        </div>
+
+        <h3>Run Migrations</h3>
+        <div class="command-block">
+            <pre>
+python manage.py migrate
+            </pre>
+        </div>
+
+        <h3>Test the Project</h3>
+        <p>Run the server and test if the project is set up correctly by visiting <code>http://127.0.0.1:8000/</code></p>
+        <div class="command-block">
+            <pre>
+python manage.py runserver
+            </pre>
+        </div>
+
+        <h3>Upload Screenshots</h3>
+        <div class="image-upload">
+            <p>Screenshot 1: Database Setup</p>
+            <input type="file" accept="image/*">
+        </div>
+        <div class="image-upload">
+            <p>Screenshot 2: Django Welcome Page</p>
+            <input type="file" accept="image/*">
+        </div>
+    </section>
+
+    <section>
+        <h2>MCQ Questions</h2>
+
+        <div class="mcq">
+            <p>1. Which command is used to create a new Django project?</p>
+            <ul>
+                <li>a) `django-admin createproject`</li>
+                <li>b) `django-admin startproject`</li>
+                <li>c) `django startproject`</li>
+            </ul>
+            <button class="answer-btn" onclick="toggleAnswer('answer1')">See Answer</button>
+            <div id="answer1" class="answer">Answer: b) `django-admin startproject`</div>
+        </div>
+
+        <div class="mcq">
+            <p>2. Which Python package is required to connect Django to a MySQL database?</p>
+            <ul>
+                <li>a) `mysql-python`</li>
+                <li>b) `mysqlclient`</li>
+                <li>c) `django-mysql`</li>
+            </ul>
+            <button class="answer-btn" onclick="toggleAnswer('answer2')">See Answer</button>
+            <div id="answer2" class="answer">Answer: b) `mysqlclient`</div>
+        </div>
+
+        <div class="mcq">
+            <p>3. What is the default port for MySQL?</p>
+            <ul>
+                <li>a) 8080</li>
+                <li>b) 5432</li>
+                <li>c) 3306</li>
+            </ul>
+            <button class="answer-btn" onclick="toggleAnswer('answer3')">See Answer</button>
+            <div id="answer3" class="answer">Answer: c) 3306</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Essay Question</h2>
+
+        <div class="essay">
+            <p>1. Explain the role of the <code>settings.py</code> file in a Django project. Why is it important to configure the database settings correctly?</p>
+            <button class="answer-btn" onclick="toggleAnswer('essayAnswer')">See Answer</button>
+            <div id="essayAnswer" class="answer">
+                <p>The <code>settings.py</code> file is the central configuration file for a Django project. It contains important settings such as the database configuration, allowed hosts, middleware, installed apps, and more. Proper configuration of the database settings is crucial because it ensures that the project can connect to the correct database server and use the right credentials. If the database connection is misconfigured, the project will not be able to store or retrieve data, which is vital for dynamic applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Assignment 1</h2>
+        <p>1. Set up your own Django project as outlined above, and connect it to a MySQL database.</p>
+        <p>2. Run the initial migrations and ensure that your project works by visiting the Django welcome page in your browser.</p>
+
+        <h3>Upload Assignment Screenshots</h3>
+        <div class="image-upload">
+            <p>Screenshot 1: MySQL Connection Configuration</p>
+            <input type="file" accept="image/*">
+        </div>
+        <div class="image-upload">
+            <p>Screenshot 2: Django App Running</p>
+            <input type="file" accept="image/*">
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>© 2024 Django Forms Tutorial | Varanasi Software Junction</p>
+</footer>
+
+<script>
+    function toggleAnswer(answerId) {
+        var answer = document.getElementById(answerId);
+        if (answer.style.display === "none" || answer.style.display === "") {
+            answer.style.display = "block";
+        } else {
+            answer.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

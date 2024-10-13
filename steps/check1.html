@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Forms Tutorial - Step 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            max-width: 1200px;
+        }
+
+        header {
+            background-color: #1e90ff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #1e90ff;
+        }
+
+        p,
+        ul,
+        li {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .command,
+        .folder-structure {
+            background-color: #e6f7ff;
+            padding: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #1e90ff;
+        }
+
+        .image-section img {
+            width: 100%;
+            max-width: 600px;
+             
+            margin: 20px 0;
+            
+        }
+
+        .mcq,
+        .essay {
+            margin: 20px 0;
+        }
+
+        .answer {
+            display: none;
+            color: green;
+            margin-top: 10px;
+        }
+
+        .answer-btn {
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .answer-btn:hover {
+            background-color: #4682b4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #1e90ff;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            p,
+            ul,
+            li {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Django Forms Tutorial - Step 1</h1>
+    </header>
+
+    <div class="container">
+
+        <section>
+            <h2>Step 1: Setting Up Your Django Project with MySQL Database</h2>
+            <p>This tutorial will guide you through setting up a Django project and connecting it to a MySQL database.
+                You'll learn how to:</p>
+            <ul>
+                <li>Install Django and MySQL libraries</li>
+                <li>Configure your database settings</li>
+                <li>Create a new Django project and app</li>
+                <li>Apply initial migrations and run your project</li>
+            </ul>
+
+            <div class="command">
+                <h3>Commands:</h3>
+                <p>1. Install Django and MySQL libraries:</p>
+                <pre><code>pip install django
+pip install mysqlclient</code></pre>
+
+                <p>2. Create a new Django project:</p>
+                <pre><code>django-admin startproject form_project
+cd form_project</code></pre>
+
+                <p>3. Create a new Django app:</p>
+                <pre><code>python manage.py startapp form_app</code></pre>
+
+                <p>4. Apply migrations:</p>
+                <pre><code>python manage.py migrate</code></pre>
+
+                <p>5. Run the server:</p>
+                <pre><code>python manage.py runserver</code></pre>
+            </div>
+
+            <div class="folder-structure">
+                <h3>Folder Structure:</h3>
+                <pre><code>form_project/
+├── form_project/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+├── form_app/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations/
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+│
+├── manage.py</code></pre>
+            </div>
+
+            <div class="image-section">
+                <h3>Progress Images:</h3>
+                <p><strong>Image 1:</strong> Installing Django</p>
+                <img src="pics/0.PNG" alt="Installing Django">
+
+                <p><strong>Image 2:</strong>Installing MySQL client</p>
+                <img src="pics/1.PNG" alt="Installing MySQL client">
+
+                
+                <p><strong>Image 3:</strong>Create Django Project</p>
+                <img src="pics/2.PNG" alt="Create Django Project">
+                <p><strong>Image 4:</strong>Project Directory</p>
+                <img src="pics/3.PNG" alt="Project Directory">
+
+                <p><strong>Image 5:</strong>Create an App</p>
+                <img src="pics/4.PNG" alt="Create an App">
+
+                <p><strong>Image 6:</strong>Project Directory after App creation</p>
+                <img src="pics/5.PNG" alt="Project Directory after App creation">
+                
+                <p><strong>Image 7:</strong>Create database in MySQL</p>
+                <img src="pics/6.PNG" alt="Create database in MySQL">
+                
+                <p><strong>Image 8:</strong>The App Directory</p>
+                <img src="pics/7.PNG" alt="The App Directory">
+                <p><strong>Image 9:</strong>Connecting to MySQL in settings.py</p>
+                <img src="pics/8.PNG" alt="Connecting to MySQL in settings.py">
+
+                <p><strong>Image 10:</strong>Migrate</p>
+                <img src="pics/9.PNG" alt="Migrate">
+
+                
+                <p><strong>Image 11:</strong>Database after Migration</p>
+                <img src="pics/10.PNG" alt="Database after Migration">
+
+                
+                <p><strong>Image 12:</strong>Run the project</p>
+                <img src="pics/11.PNG" alt="Run the project">
+                
+                <p><strong>Image 13:</strong>The running project</p>
+                <img src="pics/12.PNG" alt="The running project">
+            </div>
+
+        </section>
+
+        <section>
+            <h2>MCQ Questions</h2>
+
+            <div class="mcq">
+                <p>1. Which command is used to create a new Django project?</p>
+                <ul>
+                    <li>a) `django-admin createproject`</li>
+                    <li>b) `django-admin startproject`</li>
+                    <li>c) `django startproject`</li>
+                </ul>
+                <button class="answer-btn" onclick="toggleAnswer('answer1')">See Answer</button>
+                <div id="answer1" class="answer">Answer: b) `django-admin startproject`</div>
+            </div>
+
+            <div class="mcq">
+                <p>2. Which Python package is required to connect Django to a MySQL database?</p>
+                <ul>
+                    <li>a) `mysql-python`</li>
+                    <li>b) `mysqlclient`</li>
+                    <li>c) `django-mysql`</li>
+                </ul>
+                <button class="answer-btn" onclick="toggleAnswer('answer2')">See Answer</button>
+                <div id="answer2" class="answer">Answer: b) `mysqlclient`</div>
+            </div>
+
+            <div class="mcq">
+                <p>3. What is the default port for MySQL?</p>
+                <ul>
+                    <li>a) 8080</li>
+                    <li>b) 5432</li>
+                    <li>c) 3306</li>
+                </ul>
+                <button class="answer-btn" onclick="toggleAnswer('answer3')">See Answer</button>
+                <div id="answer3" class="answer">Answer: c) 3306</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Essay Question</h2>
+
+            <div class="essay">
+                <p>1. Explain the role of the <code>settings.py</code> file in a Django project. Why is it important to
+                    configure the database settings correctly?</p>
+                <button class="answer-btn" onclick="toggleAnswer('essayAnswer')">See Answer</button>
+                <div id="essayAnswer" class="answer">
+                    <p>The <code>settings.py</code> file is the central configuration file for a Django project. It
+                        contains important settings such as the database configuration, allowed hosts, middleware,
+                        installed apps, and more. Proper configuration of the database settings is crucial because it
+                        ensures that the project can connect to the correct database server and use the right
+                        credentials. If the database connection is misconfigured, the project will not be able to store
+                        or retrieve data, which is vital for dynamic applications.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Assignment 1</h2>
+            <p>1. Set up your own Django project as outlined above, and connect it to a MySQL database.</p>
+            <p>2. Run the initial migrations and ensure that your project works by visiting the Django welcome page in
+                your browser.</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2024 Django Forms Tutorial | Varanasi Software Junction</p>
+    </footer>
+
+    <script>
+        function toggleAnswer(answerId) {
+            var answer = document.getElementById(answerId);
+            if (answer.style.display === "none" || answer.style.display === "") {
+                answer.style.display = "block";
+            } else {
+                answer.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
